@@ -63,14 +63,24 @@ JSON schema example: {"genres":["Rock"],"moods":["Hào hứng"],"energy":"Cao","
       }
     );
 
-    const result = await apiResponse.json();
-    if (!apiResponse.ok) {
-      return new Response(JSON.stringify({
-        error: apiResponse.status === 429
-          ? "Đã chạm hạn mức miễn phí của AI. Hãy thử lại sau."
-          : "Dịch vụ AI trả về lỗi. Kiểm tra API key hoặc hạn mức."
-      }), { status: apiResponse.status === 429 ? 429 : 502, headers });
-    }
+const result = await apiResponse.json();
+
+if (!apiResponse.ok) {
+  console.error("Gemini API error", {
+    status: apiResponse.status,
+    message: result?.error?.message || "Unknown Gemini API error",
+    code: result?.error?.status || "UNKNOWN"
+  });
+
+  return new Response(JSON.stringify({
+    error: "Gemini API request failed.",
+    upstreamStatus: apiResponse.status,
+    details: result?.error?.message || "Unknown Gemini API error"
+  }), {
+    status: 502,
+    headers
+  });
+}
 
     const text = result?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("").trim();
     if (!text) throw new Error("No AI output");
