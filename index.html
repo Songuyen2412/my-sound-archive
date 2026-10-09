@@ -165,7 +165,7 @@ dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);bo
     const valid=safeUrl(url);if(!valid)return null;
     const source=sourceOf(valid);
     if(source==="YouTube"){
-      const id=youtubeId(valid);return id?{source,src:"https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)+"?autoplay=1&playsinline=1",className:"youtube"}:null;
+      const id=youtubeId(valid);return id?{source,src:"https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)+"?autoplay=1&playsinline=1&enablejsapi=1&origin="+encodeURIComponent(location.origin),className:"youtube"}:null;
     }
     if(source==="SoundCloud"){
       return {source,src:"https://w.soundcloud.com/player/?url="+encodeURIComponent(valid)+"&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=true",className:"soundcloud"};
@@ -280,6 +280,7 @@ dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);bo
   $("addTop").addEventListener("click",()=>$("url").focus());
   $("emptyAdd").addEventListener("click",()=>$("url").focus());
 
+
 $("playPause").addEventListener("click",()=>{
   const t=current();
   if(!t){
@@ -287,16 +288,39 @@ $("playPause").addEventListener("click",()=>{
     return;
   }
 
-  if(!playing){
-    playing=true;
-    $("playPause").textContent="Ⅱ";
-    renderEmbed(t,true);
-  }else{
+  if(playing){
     playing=false;
     $("playPause").textContent="▶";
 
-    // Ẩn trình phát nhưng không xóa nội dung bên trong.
-    $("embed").hidden=true;
+    const iframe=$("embed").querySelector("iframe");
+    if(iframe){
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event:"command",
+          func:"pauseVideo",
+          args:[]
+        }),
+        "*"
+      );
+    }
+  }else{
+    playing=true;
+    $("playPause").textContent="Ⅱ";
+
+    const iframe=$("embed").querySelector("iframe");
+    if(iframe){
+      $("embed").hidden=false;
+      iframe.contentWindow.postMessage(
+        JSON.stringify({
+          event:"command",
+          func:"playVideo",
+          args:[]
+        }),
+        "*"
+      );
+    }else{
+      renderEmbed(t,true);
+    }
   }
 });
   $("openOriginal").addEventListener("click",()=>{const t=current();if(t&&safeUrl(t.url))window.open(t.url,"_blank","noopener,noreferrer")});
