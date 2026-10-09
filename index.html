@@ -279,11 +279,26 @@ dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);bo
   $("search").addEventListener("input",render);
   $("addTop").addEventListener("click",()=>$("url").focus());
   $("emptyAdd").addEventListener("click",()=>$("url").focus());
-  $("playPause").addEventListener("click",()=>{
-    const t=current();if(!t){$("url").focus();return}
-    if(!playing){playing=true;$("playPause").textContent="Ⅱ";renderEmbed(t,true)}
-    else{playing=false;$("playPause").textContent="▶";$("embed").innerHTML="";$("embed").hidden=true;renderEmbed(t,false)}
-  });
+
+$("playPause").addEventListener("click",()=>{
+  const t=current();
+  if(!t){
+    $("url").focus();
+    return;
+  }
+
+  if(!playing){
+    playing=true;
+    $("playPause").textContent="Ⅱ";
+    renderEmbed(t,true);
+  }else{
+    playing=false;
+    $("playPause").textContent="▶";
+
+    // Ẩn trình phát nhưng không xóa nội dung bên trong.
+    $("embed").hidden=true;
+  }
+});
   $("openOriginal").addEventListener("click",()=>{const t=current();if(t&&safeUrl(t.url))window.open(t.url,"_blank","noopener,noreferrer")});
   const dlg=$("manageDialog");
   $("manageBtn").addEventListener("click",()=>dlg.showModal());$("closeManage").addEventListener("click",()=>dlg.close());
