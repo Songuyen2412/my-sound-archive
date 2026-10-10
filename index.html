@@ -829,6 +829,159 @@ h1 {
   }
 }
 ```
+  ```css
+/* === STEP 4: NEON MINI PLAYER === */
+
+.player {
+  z-index: 20;
+  padding: 12px 18px;
+  border-top: 1px solid rgba(167, 139, 250, .35);
+  background: rgba(8, 9, 20, .94);
+  box-shadow:
+    0 -10px 40px rgba(0, 0, 0, .24),
+    0 -1px 18px rgba(139, 92, 246, .07);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.playerinner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.nowrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.nowcover {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border: 1px solid rgba(167, 139, 250, .45);
+  border-radius: 11px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(139, 92, 246, .12);
+}
+
+.nowtext {
+  flex: 1;
+  min-width: 0;
+}
+
+.nowtitle {
+  overflow: hidden;
+  color: #f5f3ff;
+  font-size: 13px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nowartist {
+  overflow: hidden;
+  margin-top: 5px;
+  color: #9b9db9;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.playerbuttons {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+}
+
+.playerbuttons button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(167, 139, 250, .25);
+  border-radius: 50%;
+  color: #e9e8ff;
+  background: rgba(25, 27, 48, .95);
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.playerbuttons button:hover {
+  transform: scale(1.06);
+  border-color: rgba(103, 232, 249, .7);
+  box-shadow: 0 0 16px rgba(103, 232, 249, .12);
+}
+
+#playPause {
+  border-color: rgba(167, 139, 250, .75);
+  color: #090912;
+  background: linear-gradient(135deg, #c4b5fd, #67e8f9);
+  box-shadow: 0 0 22px rgba(167, 139, 250, .2);
+  font-size: 15px;
+}
+
+#openOriginal {
+  font-size: 15px;
+}
+
+.playerhint {
+  margin-top: 7px;
+  color: #8588a8;
+  font-size: 10px;
+}
+
+/* Giữ vùng phát YouTube không bị mini-player che */
+.embedwrap {
+  overflow: hidden;
+  border: 1px solid rgba(167, 139, 250, .2);
+  border-radius: 14px;
+  background: #080912;
+}
+
+.embedwrap iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  border-radius: inherit;
+}
+
+/* Trên màn hình nhỏ */
+@media (max-width: 700px) {
+  .player {
+    padding: 10px 12px;
+  }
+
+  .nowrow {
+    gap: 10px;
+  }
+
+  .nowcover {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .playerbuttons {
+    gap: 6px;
+  }
+
+  .playerbuttons button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .playerhint {
+    font-size: 9px;
+  }
+}
+```
 </style>
 </head>
 <body>
