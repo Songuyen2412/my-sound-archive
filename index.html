@@ -982,6 +982,115 @@ h1 {
   }
 }
 ```
+  ```css
+/* === STEP 5: NEON INTERACTIONS === */
+
+/* Chuyển động mượt cho các nút */
+button,
+.btn,
+.iconbtn {
+  transition:
+    color .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+button:active,
+.btn:active,
+.iconbtn:active {
+  transform: scale(.97);
+}
+
+/* Ánh sáng nhẹ khi rê chuột lên thẻ nhạc */
+.track::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(167, 139, 250, .09),
+    transparent 45%,
+    rgba(103, 232, 249, .06)
+  );
+  transition: opacity .25s ease;
+}
+
+.track:hover::before {
+  opacity: 1;
+}
+
+/* Nút chính có ánh sáng neon */
+.btn.primary,
+#playPause {
+  transition:
+    filter .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+.btn.primary:hover,
+#playPause:hover {
+  filter: brightness(1.12);
+  box-shadow:
+    0 0 18px rgba(167, 139, 250, .22),
+    0 0 28px rgba(103, 232, 249, .08);
+}
+
+/* Đĩa vinyl quay chậm */
+@keyframes cyber-vinyl-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.cyber-vinyl {
+  animation: cyber-vinyl-spin 12s linear infinite;
+}
+
+/* Nhịp điệu nhẹ cho equalizer trang trí */
+@keyframes cyber-equalizer-pulse {
+  0%, 100% { transform: scaleY(.45); opacity: .65; }
+  50%      { transform: scaleY(1); opacity: 1; }
+}
+
+.cyber-equalizer i {
+  transform-origin: center;
+  animation: cyber-equalizer-pulse .8s ease-in-out infinite;
+}
+
+.cyber-equalizer i:nth-child(2) { animation-delay: .12s; }
+.cyber-equalizer i:nth-child(3) { animation-delay: .24s; }
+.cyber-equalizer i:nth-child(4) { animation-delay: .36s; }
+.cyber-equalizer i:nth-child(5) { animation-delay: .18s; }
+.cyber-equalizer i:nth-child(6) { animation-delay: .3s; }
+.cyber-equalizer i:nth-child(7) { animation-delay: .42s; }
+
+/* Hiển thị rõ khi dùng bàn phím */
+button:focus-visible,
+.btn:focus-visible,
+.iconbtn:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 3px;
+}
+
+/* Tôn trọng cài đặt giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+```
 </style>
 </head>
 <body>
