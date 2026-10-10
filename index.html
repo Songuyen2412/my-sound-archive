@@ -1091,6 +1091,268 @@ select:focus-visible {
   }
 }
 ```
+  ```css
+/* === STEP 6: RESPONSIVE MOBILE LAYOUT === */
+
+/* Tránh padding làm tràn chiều ngang */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+}
+
+/* Nội dung chính */
+.app {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 22px;
+  padding-bottom: 155px;
+  padding-left: 22px;
+}
+
+/* Tablet và điện thoại lớn */
+@media (max-width: 1249px) {
+  .app {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cyber-sidebar,
+  .cyber-rightbar {
+    display: none;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .app {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .searchwrap {
+    min-width: 0;
+    flex: 1 1 220px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+  .app {
+    padding: 14px 14px 175px;
+  }
+
+  header {
+    padding-top: 8px;
+    padding-bottom: 15px;
+  }
+
+  header::after {
+    margin-top: 15px;
+  }
+
+  h1 {
+    font-size: clamp(22px, 6vw, 30px);
+    line-height: 1.2;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: stretch;
+    gap: 9px;
+    margin-bottom: 16px;
+  }
+
+  .searchwrap {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .toolbar button,
+  .toolbar .btn {
+    min-height: 42px;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 1px 8px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pill {
+    flex: 0 0 auto;
+    min-height: 36px;
+  }
+
+  .sectionhead {
+    gap: 8px;
+    margin: 18px 0 13px;
+  }
+
+  .sectionhead h2 {
+    font-size: 17px;
+  }
+
+  /* Hai cột bài hát trên điện thoại */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .track {
+    min-width: 0;
+    padding: 9px;
+    border-radius: 14px;
+  }
+
+  .cover {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .track h3,
+  .track .title {
+    overflow-wrap: anywhere;
+    font-size: 12px;
+  }
+
+  .track .meta,
+  .track .artist {
+    overflow-wrap: anywhere;
+    font-size: 10px;
+  }
+
+  .trackactions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .trackactions button {
+    min-height: 34px;
+  }
+
+  /* Mini-player gọn hơn */
+  .player {
+    padding: 9px 12px;
+    padding-bottom: max(9px, env(safe-area-inset-bottom));
+  }
+
+  .playerinner {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nowrow {
+    gap: 9px;
+  }
+
+  .nowcover {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .nowtitle {
+    font-size: 12px;
+  }
+
+  .nowartist {
+    font-size: 10px;
+  }
+
+  .playerbuttons {
+    gap: 6px;
+  }
+
+  .playerbuttons button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .playerhint {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 9px;
+  }
+
+  /* Không để hộp thêm bài hát tràn màn hình */
+  .panel {
+    min-width: 0;
+    padding: 14px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  dialog {
+    width: calc(100% - 24px);
+    max-width: 480px;
+    max-height: 85dvh;
+    overflow-y: auto;
+  }
+}
+
+/* Điện thoại rất nhỏ */
+@media (max-width: 360px) {
+  .app {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .track {
+    padding: 7px;
+  }
+
+  .nowrow {
+    gap: 7px;
+  }
+
+  .nowcover {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .playerbuttons button {
+    width: 32px;
+    height: 32px;
+  }
+}
+```
 </style>
 </head>
 <body>
