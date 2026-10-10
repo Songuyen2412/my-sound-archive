@@ -1492,139 +1492,601 @@ body {
   .cyber-sidebar, .cyber-right { grid-column: auto; position: static; }
 }
 
+/* Main cyberpunk layout */
+.cyber-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.cyber-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 270px;
+  align-items: start;
+  gap: 18px;
+}
+
+.cyber-panel {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid rgba(83, 216, 255, .18);
+  border-radius: 18px;
+  background: linear-gradient(155deg, #121a2c, #0c1120);
+  box-shadow: 0 0 28px rgba(83, 216, 255, .06);
+}
+
+.cyber-sidebar,
+.cyber-rightbar {
+  position: sticky;
+  top: 16px;
+}
+
+.cyber-side-label,
+.cyber-panel-label,
+.cyber-eyebrow,
+.cyber-vinyl-caption {
+  color: #8291b0;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.cyber-side-label,
+.cyber-panel-label {
+  margin: 12px 0;
+}
+
+.cyber-side-spaced {
+  margin-top: 30px;
+}
+
+.cyber-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin: 4px 0;
+  border-radius: 10px;
+  color: #9aa8c3;
+  font-size: 13px;
+}
+
+.cyber-nav-item span {
+  color: #8291b0;
+  font-size: 17px;
+}
+
+.cyber-nav-active {
+  color: #53d8ff;
+  border: 1px solid rgba(83, 216, 255, .17);
+  background: rgba(83, 216, 255, .08);
+}
+
+.cyber-sidebar-note {
+  margin-top: 36px;
+  padding: 16px;
+  border: 1px solid rgba(166, 138, 255, .2);
+  border-radius: 14px;
+  background: rgba(166, 138, 255, .05);
+}
+
+.cyber-note-orb,
+.cyber-feature-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  color: #53d8ff;
+  background: rgba(83, 216, 255, .1);
+  box-shadow: 0 0 18px rgba(83, 216, 255, .1);
+}
+
+.cyber-sidebar-note strong {
+  font-size: 13px;
+}
+
+.cyber-sidebar-note p,
+.cyber-vinyl-card p {
+  color: #8291aa;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.cyber-main-heading,
+.cyber-right-heading,
+.cyber-feature-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.cyber-main-heading {
+  margin-bottom: 22px;
+}
+
+.cyber-main-heading h2,
+.cyber-right-heading h3 {
+  margin: 7px 0 0;
+}
+
+.cyber-status-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #53d8ff;
+  box-shadow: 0 0 14px #53d8ff;
+}
+
+.cyber-video-screen {
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  min-height: 250px;
+  overflow: hidden;
+  border: 1px solid rgba(83, 216, 255, .25);
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(83, 216, 255, .16), transparent 35%),
+    radial-gradient(ellipse at 70% 80%, rgba(166, 95, 255, .13), transparent 40%),
+    #080c18;
+}
+
+.cyber-video-screen::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    rgba(255, 255, 255, .012) 4px
+  );
+}
+
+.cyber-video-symbol {
+  color: #53d8ff;
+  font-size: 58px;
+  text-shadow: 0 0 30px rgba(83, 216, 255, .65);
+}
+
+.cyber-video-caption {
+  margin-top: 12px;
+  color: #8291b0;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.cyber-feature-title {
+  padding: 20px 2px;
+}
+
+.cyber-feature-title h2 {
+  margin: 8px 0 4px;
+  font-size: clamp(18px, 2vw, 25px);
+}
+
+.cyber-feature-title p {
+  margin: 0;
+  color: #8d9bb6;
+  font-size: 13px;
+}
+
+.cyber-feature-icon {
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  font-size: 22px;
+}
+
+.cyber-tabs {
+  display: flex;
+  gap: 22px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(130, 145, 176, .16);
+  color: #8291aa;
+  font-size: 12px;
+}
+
+.cyber-tab-active {
+  padding-bottom: 12px;
+  margin-bottom: -15px;
+  color: #53d8ff;
+  border-bottom: 2px solid #53d8ff;
+}
+
+.cyber-right-heading {
+  margin-bottom: 28px;
+}
+
+.cyber-theme-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 9px;
+  margin: 8px 0;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  color: #dce6fa;
+  font-size: 12px;
+}
+
+.cyber-theme-active {
+  border-color: rgba(83, 216, 255, .25);
+  background: rgba(83, 216, 255, .06);
+}
+
+.cyber-theme-card strong,
+.cyber-theme-card small {
+  display: block;
+}
+
+.cyber-theme-card small {
+  margin-top: 4px;
+  color: #8291aa;
+  font-size: 10px;
+}
+
+.cyber-theme-swatch {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #53d8ff, #a68aff);
+}
+
+.cyber-swatch-night {
+  background: linear-gradient(135deg, #292044, #9b64ff);
+}
+
+.cyber-swatch-blue {
+  background: linear-gradient(135deg, #1b83ff, #7be7ff);
+}
+
+.cyber-swatch-violet {
+  background: linear-gradient(135deg, #7c3cff, #ff70d4);
+}
+
+.cyber-theme-check {
+  margin-left: auto;
+  color: #53d8ff;
+}
+
+.cyber-vinyl-card {
+  position: relative;
+  overflow: hidden;
+  margin-top: 28px;
+  padding: 18px 12px;
+  border: 1px solid rgba(166, 138, 255, .2);
+  border-radius: 16px;
+  background: linear-gradient(155deg, rgba(94, 60, 155, .14), rgba(12, 17, 32, .5));
+  text-align: center;
+}
+
+.cyber-vinyl {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: min(100%, 175px);
+  aspect-ratio: 1;
+  margin: 8px auto 24px;
+  border: 1px solid rgba(166, 138, 255, .55);
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    #171b2b 0,
+    #171b2b 3px,
+    #2b3044 4px,
+    #101421 6px
+  );
+  box-shadow: 0 0 28px rgba(166, 138, 255, .18);
+  animation: cyber-vinyl-spin 12s linear infinite;
+}
+
+.cyber-vinyl-label {
+  display: grid;
+  place-items: center;
+  width: 36%;
+  aspect-ratio: 1;
+  border: 4px solid #171b2b;
+  border-radius: 50%;
+  color: #09101c;
+  background: radial-gradient(circle, #53d8ff, #a68aff 75%);
+  font-size: 23px;
+}
+
+@keyframes cyber-vinyl-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cyber-vinyl-caption {
+  font-size: 9px;
+}
+
+.cyber-vinyl-card h3 {
+  margin: 9px 0 4px;
+  font-size: 15px;
+}
+
+.cyber-equalizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 23px;
+  margin-top: 15px;
+}
+
+.cyber-equalizer i {
+  width: 3px;
+  height: 9px;
+  border-radius: 4px;
+  background: #53d8ff;
+  box-shadow: 0 0 8px rgba(83, 216, 255, .5);
+  animation: cyber-eq .7s ease-in-out infinite alternate;
+}
+
+.cyber-equalizer i:nth-child(2n) { animation-delay: -.3s; }
+.cyber-equalizer i:nth-child(3n) { animation-delay: -.5s; }
+
+@keyframes cyber-eq {
+  to { height: 21px; }
+}
+
+.cyber-right-footer {
+  margin-top: 22px;
+  color: #8291aa;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Track list stays usable within the center column */
+.cyber-main .grid {
+  min-width: 0;
+}
+
+/* Fixed bottom music player */
+.player {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(83, 216, 255, .25);
+  background: rgba(8, 12, 24, .97);
+  box-shadow: 0 -8px 35px rgba(0, 0, 0, .4);
+  backdrop-filter: blur(20px);
+}
+
+.playerinner {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1150px) {
+  .cyber-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .cyber-rightbar {
+    position: static;
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .app {
+    padding: 14px 12px 160px;
+  }
+
+  .cyber-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cyber-sidebar,
+  .cyber-rightbar {
+    position: static;
+    grid-column: auto;
+  }
+
+  .cyber-video-screen {
+    min-height: 190px;
+  }
+
+  .cyber-panel {
+    padding: 15px;
+  }
+}
 </style>
 </head>
 <body>
+
 <div class="app">
-<aside class="cyber-sidebar" aria-label="Điều hướng thư viện">
-  <div class="cyber-side-label">YOUR SPACE</div>
-
-  <div class="cyber-nav-item cyber-nav-active">
-    <span>◈</span> Thư viện của tôi
-  </div>
-  <div class="cyber-nav-item">
-    <span>＋</span> Playlist
-  </div>
-  <div class="cyber-nav-item">
-    <span>♥</span> Bài hát yêu thích
-  </div>
-
-  <div class="cyber-side-label cyber-side-spaced">YOUR COLLECTION</div>
-
-  <div class="cyber-nav-item">
-    <span>♫</span> Gần đây
-  </div>
-  <div class="cyber-nav-item">
-    <span>◉</span> Nghệ sĩ
-  </div>
-  <div class="cyber-nav-item">
-    <span>▧</span> Album
-  </div>
-
-  <div class="cyber-sidebar-note">
-    <div class="cyber-note-orb">♫</div>
-    <strong>Sound Archive</strong>
-    <p>Mỗi giai điệu lưu giữ một mảnh ký ức.</p>
-  </div>
-</aside>
-  <header>
-    <div class="brand"><div class="logo">♫</div><div><h1>My Sound Archive</h1><div class="subtitle">Những giai điệu đã đi qua đời bạn.</div></div></div>
+  <header class="cyber-header">
+    <div class="brand">
+      <div class="logo">♫</div>
+      <div>
+        <h1>My Sound Archive</h1>
+        <div class="subtitle">YOUR MUSIC UNIVERSE</div>
+      </div>
+    </div>
     <button class="iconbtn" id="manageBtn" aria-label="Quản lý dữ liệu" title="Quản lý dữ liệu">⚙</button>
   </header>
+
   <div class="toolbar">
-    <label class="searchwrap"><span>⌕</span><input id="search" placeholder="Tìm bài hát, nghệ sĩ, ghi chú..." autocomplete="off"></label>
+    <label class="searchwrap">
+      <span>⌕</span>
+      <input id="search" placeholder="Tìm bài hát, nghệ sĩ, ghi chú..." autocomplete="off">
+    </label>
     <button class="btn primary" id="addTop">＋ Thêm bài</button>
   </div>
-  <div class="pills" id="filters">
-    <button class="pill active" data-filter="all">Tất cả</button>
-    <button class="pill" data-filter="favorites">♥ Yêu thích</button>
-    <button class="pill" data-filter="recent">Mới thêm</button>
-    <button class="pill" data-filter="YouTube">YouTube</button>
-    <button class="pill" data-filter="Spotify">Spotify</button>
-    <button class="pill" data-filter="SoundCloud">SoundCloud</button>
-    <button class="pill" data-filter="Other">Nguồn khác</button>
-  </div>
-  <div class="sectionhead"><h2 id="sectionTitle">Tất cả giai điệu</h2><span class="count" id="count">0 bài</span></div>
-  <div id="trackGrid" class="grid"></div>
-  <div id="empty" class="empty"><div class="big">♫</div><strong>Kho nhạc đang chờ những giai điệu đầu tiên</strong><div>Thêm đường dẫn bài hát từ nền tảng bạn dùng. Thư viện sẽ giữ bài, ảnh bìa và ghi chú tại trình duyệt này.</div><button class="btn primary" id="emptyAdd" style="margin-top:15px">＋ Thêm bài đầu tiên</button></div>
-  <section class="panel" id="addPanel">
-    <h3 id="formTitle">Thêm một giai điệu</h3>
-    <form id="trackForm">
-      <div class="formgrid">
-        <div class="field full"><label for="url">Liên kết bài hát *</label><input id="url" type="url" required placeholder="Dán link từ nền tảng nghe nhạc"></div>
-        <div class="field"><label for="title">Tên bài hát *</label><input id="title" required placeholder="Tên bài"></div>
-        <div class="field"><label for="artist">Nghệ sĩ</label><input id="artist" placeholder="Tên nghệ sĩ / ban nhạc"></div>
-        <div class="field"><label for="cover">Link ảnh bìa (không bắt buộc)</label><input id="cover" type="url" placeholder="https://..."></div>
-        <div class="field"><label for="group">Nhóm / tâm trạng</label><input id="group" placeholder="Nhạc cũ, chill, rock..."></div>
-        <div class="field full"><label for="note">Ký ức hoặc ghi chú (không bắt buộc)</label><input id="note" placeholder="Nghe bài này vào thời điểm nào?"></div>
+
+  <div class="cyber-layout">
+    <aside class="cyber-sidebar cyber-panel" aria-label="Điều hướng thư viện">
+      <div class="cyber-side-label">YOUR SPACE</div>
+      <div class="cyber-nav-item cyber-nav-active"><span>◈</span> Thư viện của tôi</div>
+      <div class="cyber-nav-item"><span>＋</span> Playlist</div>
+      <div class="cyber-nav-item"><span>♥</span> Bài hát yêu thích</div>
+
+      <div class="cyber-side-label cyber-side-spaced">YOUR COLLECTION</div>
+      <div class="cyber-nav-item"><span>♫</span> Gần đây</div>
+      <div class="cyber-nav-item"><span>◉</span> Nghệ sĩ</div>
+      <div class="cyber-nav-item"><span>▧</span> Album</div>
+
+      <div class="cyber-sidebar-note">
+        <div class="cyber-note-orb">♫</div>
+        <strong>Sound Archive</strong>
+        <p>Mỗi giai điệu lưu giữ một mảnh ký ức.</p>
       </div>
-      <div class="formbuttons"><button class="btn primary" type="submit" id="saveTrack">Lưu vào thư viện</button><button class="btn ghost" type="button" id="cancelEdit" hidden>Hủy sửa</button></div>
-      <p class="hint">Mẹo: nếu nền tảng có nút Chia sẻ → Sao chép liên kết, hãy dùng đường dẫn đó. Một số nguồn yêu cầu đăng nhập hoặc không cho nhúng trình phát.</p>
-    </form>
-  </section>
-<aside class="cyber-rightbar" aria-label="Bảng điều khiển giao diện">
-  <div class="cyber-right-heading">
-    <div>
-      <div class="cyber-eyebrow">PERSONALIZE</div>
-      <h3>Không gian của bạn</h3>
-    </div>
-    <span class="cyber-status-dot"></span>
-  </div>
+    </aside>
 
-  <div class="cyber-panel-label">CHỦ ĐỀ GIAO DIỆN</div>
-
-  <div class="cyber-theme-card cyber-theme-active">
-    <span class="cyber-theme-swatch cyber-swatch-neon"></span>
-    <span>
-      <strong>Neon Flow</strong>
-      <small>Tím neon · Xanh điện</small>
-    </span>
-    <span class="cyber-theme-check">✓</span>
-  </div>
-
-  <div class="cyber-theme-card">
-    <span class="cyber-theme-swatch cyber-swatch-night"></span>
-    <span>
-      <strong>Cyberpunk Night</strong>
-      <small>Đêm tối · Ánh tím</small>
-    </span>
-  </div>
-
-  <div class="cyber-theme-card">
-    <span class="cyber-theme-swatch cyber-swatch-blue"></span>
-    <span>
-      <strong>Electric Blue</strong>
-      <small>Xanh điện · Băng giá</small>
-    </span>
-  </div>
-
-  <div class="cyber-theme-card">
-    <span class="cyber-theme-swatch cyber-swatch-violet"></span>
-    <span>
-      <strong>Violet Pulse</strong>
-      <small>Tím đậm · Hồng sáng</small>
-    </span>
-  </div>
-
-  <div class="cyber-vinyl-card">
-    <div class="cyber-vinyl">
-      <div class="cyber-vinyl-label">
-        <span>♫</span>
+    <main class="cyber-main cyber-panel">
+      <div class="cyber-main-heading">
+        <div>
+          <div class="cyber-eyebrow">YOUR PERSONAL MUSIC SPACE</div>
+          <h2>Không gian âm nhạc</h2>
+        </div>
+        <span class="cyber-status-dot"></span>
       </div>
-    </div>
-    <div class="cyber-vinyl-glow"></div>
-    <div class="cyber-vinyl-caption">NOW FEELING</div>
-    <h3>Lost in the Rhythm</h3>
-    <p>Một thế giới, một giai điệu.</p>
-    <div class="cyber-equalizer">
-      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-    </div>
-  </div>
 
-  <div class="cyber-right-footer">
-    <span>✦</span> YOUR SOUND. YOUR UNIVERSE.
+      <div class="cyber-now-playing">
+        <div class="cyber-video-screen">
+          <div class="cyber-video-symbol">♫</div>
+          <div class="cyber-video-caption">YOUR MUSIC. YOUR MEMORIES.</div>
+        </div>
+        <div class="cyber-feature-title">
+          <div>
+            <div class="cyber-eyebrow">NOW PLAYING</div>
+            <h2 id="featureTitle">Chọn một giai điệu</h2>
+            <p id="featureArtist">Âm nhạc của riêng bạn</p>
+          </div>
+          <div class="cyber-feature-icon">♫</div>
+        </div>
+      </div>
+
+      <div class="cyber-tabs">
+        <span class="cyber-tab-active">♫ Thư viện</span>
+        <span>☷ Bộ sưu tập</span>
+      </div>
+
+      <div class="pills" id="filters">
+        <button class="pill active" data-filter="all">Tất cả</button>
+        <button class="pill" data-filter="favorites">♥ Yêu thích</button>
+        <button class="pill" data-filter="recent">Mới thêm</button>
+        <button class="pill" data-filter="YouTube">YouTube</button>
+        <button class="pill" data-filter="Spotify">Spotify</button>
+        <button class="pill" data-filter="SoundCloud">SoundCloud</button>
+        <button class="pill" data-filter="Other">Nguồn khác</button>
+      </div>
+
+      <div class="sectionhead">
+        <h2 id="sectionTitle">Tất cả giai điệu</h2>
+        <span class="count" id="count">0 bài</span>
+      </div>
+
+      <div id="trackGrid" class="grid"></div>
+
+      <div id="empty" class="empty">
+        <div class="big">♫</div>
+        <strong>Kho nhạc đang chờ những giai điệu đầu tiên</strong>
+        <div>Thêm đường dẫn bài hát để tạo bộ sưu tập âm nhạc của riêng bạn.</div>
+        <button class="btn primary" id="emptyAdd" style="margin-top:15px">＋ Thêm bài đầu tiên</button>
+      </div>
+
+      <section class="panel" id="addPanel">
+        <h3 id="formTitle">Thêm một giai điệu</h3>
+        <form id="trackForm">
+          <div class="formgrid">
+            <div class="field full">
+              <label for="url">Liên kết bài hát *</label>
+              <input id="url" type="url" required placeholder="Dán link từ nền tảng nghe nhạc">
+            </div>
+            <div class="field">
+              <label for="title">Tên bài hát *</label>
+              <input id="title" required placeholder="Tên bài">
+            </div>
+            <div class="field">
+              <label for="artist">Nghệ sĩ</label>
+              <input id="artist" placeholder="Tên nghệ sĩ / ban nhạc">
+            </div>
+            <div class="field">
+              <label for="cover">Link ảnh bìa (không bắt buộc)</label>
+              <input id="cover" type="url" placeholder="https://...">
+            </div>
+            <div class="field">
+              <label for="group">Nhóm / tâm trạng</label>
+              <input id="group" placeholder="Nhạc cũ, chill, rock...">
+            </div>
+            <div class="field full">
+              <label for="note">Ký ức hoặc ghi chú (không bắt buộc)</label>
+              <input id="note" placeholder="Nghe bài này vào thời điểm nào?">
+            </div>
+          </div>
+          <div class="formbuttons">
+            <button class="btn primary" type="submit" id="saveTrack">Lưu vào thư viện</button>
+            <button class="btn ghost" type="button" id="cancelEdit" hidden>Hủy sửa</button>
+          </div>
+          <p class="hint">Một số nền tảng có thể yêu cầu đăng nhập hoặc không cho nhúng trình phát.</p>
+        </form>
+      </section>
+    </main>
+
+    <aside class="cyber-rightbar cyber-panel" aria-label="Bảng điều khiển giao diện">
+      <div class="cyber-right-heading">
+        <div>
+          <div class="cyber-eyebrow">PERSONALIZE</div>
+          <h3>Không gian của bạn</h3>
+        </div>
+        <span class="cyber-status-dot"></span>
+      </div>
+
+      <div class="cyber-panel-label">CHỦ ĐỀ GIAO DIỆN</div>
+
+      <div class="cyber-theme-card cyber-theme-active">
+        <span class="cyber-theme-swatch cyber-swatch-neon"></span>
+        <span><strong>Neon Flow</strong><small>Tím neon · Xanh điện</small></span>
+        <span class="cyber-theme-check">✓</span>
+      </div>
+      <div class="cyber-theme-card">
+        <span class="cyber-theme-swatch cyber-swatch-night"></span>
+        <span><strong>Cyberpunk Night</strong><small>Đêm tối · Ánh tím</small></span>
+      </div>
+      <div class="cyber-theme-card">
+        <span class="cyber-theme-swatch cyber-swatch-blue"></span>
+        <span><strong>Electric Blue</strong><small>Xanh điện · Băng giá</small></span>
+      </div>
+      <div class="cyber-theme-card">
+        <span class="cyber-theme-swatch cyber-swatch-violet"></span>
+        <span><strong>Violet Pulse</strong><small>Tím đậm · Hồng sáng</small></span>
+      </div>
+
+      <div class="cyber-vinyl-card">
+        <div class="cyber-vinyl">
+          <div class="cyber-vinyl-label"><span>♫</span></div>
+        </div>
+        <div class="cyber-vinyl-glow"></div>
+        <div class="cyber-vinyl-caption">NOW FEELING</div>
+        <h3>Lost in the Rhythm</h3>
+        <p>Một thế giới, một giai điệu.</p>
+        <div class="cyber-equalizer">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="cyber-right-footer">✦ YOUR SOUND. YOUR UNIVERSE.</div>
+    </aside>
   </div>
-</aside>
 </div>
 <div class="player">
   <div class="playerinner">
