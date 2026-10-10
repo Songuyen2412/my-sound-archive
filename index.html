@@ -264,10 +264,156 @@ dialog {
     width: 100%;
   }
 }
+
+/* === LEFT CYBER SIDEBAR === */
+.cyber-sidebar {
+  display: none;
+}
+
+@media (min-width: 1250px) {
+  .cyber-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 28px;
+    left: max(22px, calc((100vw - 1540px) / 2));
+    bottom: 125px;
+    width: 218px;
+    padding: 22px 14px;
+    border: 1px solid rgba(167, 139, 250, .2);
+    border-radius: 22px;
+    background: rgba(13, 15, 29, .84);
+    box-shadow: 0 0 32px rgba(93, 60, 190, .08);
+    backdrop-filter: blur(18px);
+    z-index: 3;
+  }
+
+  .app {
+    margin-left: 260px;
+    margin-right: 260px;
+    max-width: none;
+    padding-top: 28px;
+  }
+
+  .playerinner {
+    max-width: none;
+  }
+}
+
+.cyber-side-label {
+  padding: 0 10px;
+  margin: 4px 0 12px;
+  color: #8588a8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.cyber-side-spaced {
+  margin-top: 30px;
+}
+
+.cyber-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 11px;
+  margin: 3px 0;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #a6a9c2;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cyber-nav-item span {
+  width: 20px;
+  text-align: center;
+  font-size: 17px;
+  color: #a78bfa;
+}
+
+.cyber-nav-active {
+  color: #f5f3ff;
+  border-color: rgba(167, 139, 250, .25);
+  background: linear-gradient(
+    100deg,
+    rgba(139, 92, 246, .2),
+    rgba(103, 232, 249, .06)
+  );
+  box-shadow: inset 3px 0 #a78bfa;
+}
+
+.cyber-sidebar-note {
+  margin-top: auto;
+  padding: 15px 12px;
+  border: 1px solid rgba(103, 232, 249, .2);
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(103, 232, 249, .08),
+    rgba(167, 139, 250, .1)
+  );
+}
+
+.cyber-note-orb {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  color: #090b16;
+  font-size: 22px;
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  box-shadow: 0 0 20px rgba(103, 232, 249, .16);
+}
+
+.cyber-sidebar-note strong {
+  font-size: 12px;
+}
+
+.cyber-sidebar-note p {
+  margin: 6px 0 0;
+  color: #a6a9c2;
+  font-size: 11px;
+  line-height: 1.6;
+}
 </style>
 </head>
 <body>
 <div class="app">
+<aside class="cyber-sidebar" aria-label="Điều hướng thư viện">
+  <div class="cyber-side-label">YOUR SPACE</div>
+
+  <div class="cyber-nav-item cyber-nav-active">
+    <span>◈</span> Thư viện của tôi
+  </div>
+  <div class="cyber-nav-item">
+    <span>＋</span> Playlist
+  </div>
+  <div class="cyber-nav-item">
+    <span>♥</span> Bài hát yêu thích
+  </div>
+
+  <div class="cyber-side-label cyber-side-spaced">YOUR COLLECTION</div>
+
+  <div class="cyber-nav-item">
+    <span>♫</span> Gần đây
+  </div>
+  <div class="cyber-nav-item">
+    <span>◉</span> Nghệ sĩ
+  </div>
+  <div class="cyber-nav-item">
+    <span>▧</span> Album
+  </div>
+
+  <div class="cyber-sidebar-note">
+    <div class="cyber-note-orb">♫</div>
+    <strong>Sound Archive</strong>
+    <p>Mỗi giai điệu lưu giữ một mảnh ký ức.</p>
+  </div>
+</aside>
   <header>
     <div class="brand"><div class="logo">♫</div><div><h1>My Sound Archive</h1><div class="subtitle">Những giai điệu đã đi qua đời bạn.</div></div></div>
     <button class="iconbtn" id="manageBtn" aria-label="Quản lý dữ liệu" title="Quản lý dữ liệu">⚙</button>
