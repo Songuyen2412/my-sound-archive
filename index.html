@@ -2266,13 +2266,29 @@ body {
     });
   }
   function current(){return tracks.find(t=>t.id===currentId)}
-  function setCurrent(t,autoplay=true){
-    if(!t)return;currentId=t.id;playing=autoplay;
-    $("nowTitle").textContent=t.title;$("nowArtist").textContent=t.artist||platformLabel(t.url);
-    $("nowCover").src=t.cover&&safeUrl(t.cover)?t.cover:"";$("nowCover").style.visibility=$("nowCover").src?"visible":"hidden";
-    $("openOriginal").disabled=!safeUrl(t.url);$("playPause").textContent=autoplay?"Ⅱ":"▶";
+function setCurrent(t,autoplay=true){
+    if(!t)return;
+    currentId=t.id;
+    playing=autoplay;
+
+    $("nowTitle").textContent=t.title;
+    $("nowArtist").textContent=t.artist||platformLabel(t.url);
+
+    // Đồng bộ tên bài và nghệ sĩ lên giao diện trung tâm
+    const featureTitle = document.getElementById("featureTitle");
+    const featureArtist = document.getElementById("featureArtist");
+
+    if(featureTitle) featureTitle.textContent=t.title;
+    if(featureArtist) featureArtist.textContent=t.artist||platformLabel(t.url);
+
+    $("nowCover").src=t.cover&&safeUrl(t.cover)?t.cover:"";
+    $("nowCover").style.visibility=$("nowCover").src?"visible":"hidden";
+
+    $("openOriginal").disabled=!safeUrl(t.url);
+    $("playPause").textContent=autoplay?"Ⅱ":"▶";
+
     renderEmbed(t,autoplay);
-  }
+}
   function renderEmbed(t,autoplay){
     const info=embedInfo(t.url),box=$("embed");box.innerHTML="";box.className="embedwrap";box.hidden=true;
     if(info&&autoplay){
