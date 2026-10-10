@@ -56,6 +56,19 @@ dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);bo
 @media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.app{padding-top:28px}.cover{aspect-ratio:1.12/1}}
 @media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:390px){.app{padding-left:12px;padding-right:12px}.grid{gap:9px}.track{padding:8px}.toolbar{grid-template-columns:1fr}.toolbar>.btn{width:100%}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+.player{
+  position:fixed;
+  z-index:5;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  box-sizing:border-box;
+  background:rgba(17,17,28,.96);
+  border-top:1px solid rgba(184,166,255,.24);
+  box-shadow:0 -8px 30px rgba(0,0,0,.22);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+}
 </style>
 </head>
 <body>
