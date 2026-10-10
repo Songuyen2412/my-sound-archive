@@ -2305,6 +2305,18 @@ body {
   function resetForm(){
     editingId=null;$("trackForm").reset();$("formTitle").textContent="Thêm một giai điệu";$("saveTrack").textContent="Lưu vào thư viện";$("cancelEdit").hidden=true;
   }
+function updateCyberNowPlaying(title, artist) {
+  const titleEl = document.getElementById("featureTitle");
+  const artistEl = document.getElementById("featureArtist");
+
+  if (titleEl) {
+    titleEl.textContent = title || "Chọn một giai điệu";
+  }
+
+  if (artistEl) {
+    artistEl.textContent = artist || "Âm nhạc của riêng bạn";
+  }
+}
   function editTrack(t){
     editingId=t.id;$("url").value=t.url;$("title").value=t.title;$("artist").value=t.artist||"";$("cover").value=t.cover||"";$("group").value=t.group||"";$("note").value=t.note||"";
     $("formTitle").textContent="Chỉnh sửa giai điệu";$("saveTrack").textContent="Lưu thay đổi";$("cancelEdit").hidden=false;
