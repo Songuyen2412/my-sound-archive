@@ -379,6 +379,269 @@ dialog {
   font-size: 11px;
   line-height: 1.6;
 }
+  ```css
+/* === RIGHT CYBERPUNK SIDEBAR === */
+.cyber-rightbar {
+  display: none;
+}
+
+@media (min-width: 1250px) {
+  .cyber-rightbar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 28px;
+    right: max(22px, calc((100vw - 1540px) / 2));
+    bottom: 125px;
+    width: 218px;
+    box-sizing: border-box;
+    padding: 22px 14px;
+    overflow-y: auto;
+    border: 1px solid rgba(103, 232, 249, .18);
+    border-radius: 22px;
+    background: rgba(13, 15, 29, .88);
+    box-shadow: 0 0 35px rgba(103, 232, 249, .05);
+    backdrop-filter: blur(18px);
+    z-index: 3;
+  }
+}
+
+.cyber-right-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.cyber-eyebrow {
+  color: #67e8f9;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.cyber-right-heading h3 {
+  margin: 7px 0 0;
+  color: #f5f3ff;
+  font-size: 15px;
+}
+
+.cyber-status-dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #67e8f9;
+  box-shadow: 0 0 12px #67e8f9;
+}
+
+.cyber-panel-label {
+  margin-bottom: 12px;
+  color: #8588a8;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.cyber-theme-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+  padding: 10px 8px;
+  border: 1px solid rgba(145, 145, 180, .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .025);
+}
+
+.cyber-theme-active {
+  border-color: rgba(167, 139, 250, .48);
+  background: linear-gradient(
+    110deg,
+    rgba(139, 92, 246, .17),
+    rgba(103, 232, 249, .05)
+  );
+}
+
+.cyber-theme-swatch {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+}
+
+.cyber-swatch-neon {
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+}
+
+.cyber-swatch-night {
+  background: linear-gradient(135deg, #27213f, #8b5cf6);
+}
+
+.cyber-swatch-blue {
+  background: linear-gradient(135deg, #2563eb, #67e8f9);
+}
+
+.cyber-swatch-violet {
+  background: linear-gradient(135deg, #7c3aed, #f0abfc);
+}
+
+.cyber-theme-card strong {
+  display: block;
+  color: #e9e8ff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cyber-theme-card small {
+  display: block;
+  margin-top: 4px;
+  color: #9295b2;
+  font-size: 8px;
+}
+
+.cyber-theme-check {
+  margin-left: auto;
+  color: #67e8f9;
+  font-size: 13px;
+}
+
+.cyber-vinyl-card {
+  position: relative;
+  margin-top: 25px;
+  padding: 20px 12px 15px;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid rgba(167, 139, 250, .22);
+  border-radius: 17px;
+  background: linear-gradient(
+    155deg,
+    rgba(139, 92, 246, .12),
+    rgba(15, 17, 33, .5) 65%
+  );
+}
+
+.cyber-vinyl {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 130px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 19px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    #171727 0,
+    #171727 3px,
+    #29283c 4px,
+    #11121e 6px,
+    #1c1c30 8px
+  );
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, .4),
+    0 0 28px rgba(139, 92, 246, .2);
+}
+
+.cyber-vinyl::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 50%;
+}
+
+.cyber-vinyl-label {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 3px solid #11121e;
+  border-radius: 50%;
+  color: #080912;
+  font-size: 20px;
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  box-shadow: 0 0 15px rgba(103, 232, 249, .3);
+}
+
+.cyber-vinyl-glow {
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  width: 110px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, .25);
+  filter: blur(25px);
+  transform: translateX(-50%);
+}
+
+.cyber-vinyl-caption {
+  color: #67e8f9;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.cyber-vinyl-card h3 {
+  margin: 8px 0 5px;
+  color: #f5f3ff;
+  font-size: 13px;
+}
+
+.cyber-vinyl-card p {
+  margin: 0;
+  color: #9295b2;
+  font-size: 10px;
+}
+
+.cyber-equalizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 22px;
+  margin-top: 15px;
+}
+
+.cyber-equalizer i {
+  display: block;
+  width: 3px;
+  height: 7px;
+  border-radius: 3px;
+  background: linear-gradient(#67e8f9, #a78bfa);
+}
+
+.cyber-equalizer i:nth-child(2),
+.cyber-equalizer i:nth-child(6) {
+  height: 14px;
+}
+
+.cyber-equalizer i:nth-child(3),
+.cyber-equalizer i:nth-child(5) {
+  height: 19px;
+}
+
+.cyber-equalizer i:nth-child(4) {
+  height: 11px;
+}
+
+.cyber-right-footer {
+  margin-top: auto;
+  padding-top: 22px;
+  color: #777b9b;
+  text-align: center;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.cyber-right-footer span {
+  color: #a78bfa;
+}
+```
 </style>
 </head>
 <body>
@@ -449,6 +712,71 @@ dialog {
       <p class="hint">Mẹo: nếu nền tảng có nút Chia sẻ → Sao chép liên kết, hãy dùng đường dẫn đó. Một số nguồn yêu cầu đăng nhập hoặc không cho nhúng trình phát.</p>
     </form>
   </section>
+  ```html
+<aside class="cyber-rightbar" aria-label="Bảng điều khiển giao diện">
+  <div class="cyber-right-heading">
+    <div>
+      <div class="cyber-eyebrow">PERSONALIZE</div>
+      <h3>Không gian của bạn</h3>
+    </div>
+    <span class="cyber-status-dot"></span>
+  </div>
+
+  <div class="cyber-panel-label">CHỦ ĐỀ GIAO DIỆN</div>
+
+  <div class="cyber-theme-card cyber-theme-active">
+    <span class="cyber-theme-swatch cyber-swatch-neon"></span>
+    <span>
+      <strong>Neon Flow</strong>
+      <small>Tím neon · Xanh điện</small>
+    </span>
+    <span class="cyber-theme-check">✓</span>
+  </div>
+
+  <div class="cyber-theme-card">
+    <span class="cyber-theme-swatch cyber-swatch-night"></span>
+    <span>
+      <strong>Cyberpunk Night</strong>
+      <small>Đêm tối · Ánh tím</small>
+    </span>
+  </div>
+
+  <div class="cyber-theme-card">
+    <span class="cyber-theme-swatch cyber-swatch-blue"></span>
+    <span>
+      <strong>Electric Blue</strong>
+      <small>Xanh điện · Băng giá</small>
+    </span>
+  </div>
+
+  <div class="cyber-theme-card">
+    <span class="cyber-theme-swatch cyber-swatch-violet"></span>
+    <span>
+      <strong>Violet Pulse</strong>
+      <small>Tím đậm · Hồng sáng</small>
+    </span>
+  </div>
+
+  <div class="cyber-vinyl-card">
+    <div class="cyber-vinyl">
+      <div class="cyber-vinyl-label">
+        <span>♫</span>
+      </div>
+    </div>
+    <div class="cyber-vinyl-glow"></div>
+    <div class="cyber-vinyl-caption">NOW FEELING</div>
+    <h3>Lost in the Rhythm</h3>
+    <p>Một thế giới, một giai điệu.</p>
+    <div class="cyber-equalizer">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+
+  <div class="cyber-right-footer">
+    <span>✦</span> YOUR SOUND. YOUR UNIVERSE.
+  </div>
+</aside>
+```
 </div>
 <div class="player">
   <div class="playerinner">
