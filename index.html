@@ -242,26 +242,18 @@ dialog {
 }
 /* === LEFT CYBER SIDEBAR === */
 .cyber-sidebar {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px 14px;
+  border: 1px solid rgba(167, 139, 250, .2);
+  border-radius: 22px;
+  background: rgba(13, 15, 29, .84);
+  box-shadow: 0 0 32px rgba(93, 60, 190, .08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  align-self: stretch;
 }
-@media (min-width: 1450px) {
-  .cyber-sidebar {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 28px;
-    left: max(22px, calc((100vw - 1540px) / 2));
-    bottom: 125px;
-    width: 218px;
-    padding: 22px 14px;
-    border: 1px solid rgba(167, 139, 250, .2);
-    border-radius: 22px;
-    background: rgba(13, 15, 29, .84);
-    box-shadow: 0 0 32px rgba(93, 60, 190, .08);
-    backdrop-filter: blur(18px);
-    z-index: 3;
-  }
-
   .app {
     margin-left: 260px;
     margin-right: 260px;
@@ -355,29 +347,21 @@ dialog {
 }
 /* === RIGHT CYBERPUNK SIDEBAR === */
 .cyber-rightbar {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 18px;
+  padding: 22px 14px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(103, 232, 249, .18);
+  border-radius: 22px;
+  background: rgba(13, 15, 29, .88);
+  box-shadow: 0 0 35px rgba(103, 232, 249, .05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  align-self: stretch;
 }
-@media (min-width: 1450px) {
-  .cyber-rightbar {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 28px;
-    right: max(22px, calc((100vw - 1540px) / 2));
-    bottom: 125px;
-    width: 218px;
-    box-sizing: border-box;
-    padding: 22px 14px;
-    overflow-y: auto;
-    border: 1px solid rgba(103, 232, 249, .18);
-    border-radius: 22px;
-    background: rgba(13, 15, 29, .88);
-    box-shadow: 0 0 35px rgba(103, 232, 249, .05);
-    backdrop-filter: blur(18px);
-    z-index: 3;
-  }
-}
-
 .cyber-right-heading {
   display: flex;
   align-items: center;
@@ -1903,6 +1887,53 @@ body {
     width: 44px;
     height: 44px;
     flex-basis: 44px;
+  }
+}
+  
+/* === THREE-COLUMN CYBER LAYOUT === */
+.cyber-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) 230px;
+  gap: 18px;
+  align-items: start;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.cyber-main {
+  min-width: 0;
+}
+
+.cyber-rightbar {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 18px;
+  align-self: stretch;
+}
+
+/* Laptop nhỏ: ẩn cột phải, giữ sidebar trái */
+@media (max-width: 1100px) {
+  .cyber-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .cyber-rightbar {
+    display: none;
+  }
+}
+
+/* Điện thoại và màn hình hẹp */
+@media (max-width: 700px) {
+  .cyber-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .cyber-sidebar,
+  .cyber-rightbar {
+    display: none;
   }
 }
 </style>
