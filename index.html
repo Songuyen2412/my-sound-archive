@@ -1936,6 +1936,75 @@ body {
     display: none;
   }
 }
+  
+/* === LAYOUT CORRECTION === */
+.app {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cyber-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) 230px;
+  align-items: start;
+  gap: 18px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.cyber-sidebar,
+.cyber-main,
+.cyber-rightbar {
+  position: static;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.cyber-sidebar,
+.cyber-rightbar {
+  align-self: stretch;
+}
+
+.cyber-main {
+  min-width: 0;
+}
+
+/* Chừa chỗ để player không che nội dung cuối trang */
+body {
+  padding-bottom: 110px;
+}
+
+@media (max-width: 1100px) {
+  .cyber-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .cyber-rightbar {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .cyber-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cyber-sidebar,
+  .cyber-rightbar {
+    display: none;
+  }
+
+  body {
+    padding-bottom: 100px;
+  }
+}
 </style>
 </head>
 <body>
